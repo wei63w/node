@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+var http = require('http');
+var qs = require('querystring'); 
 
 app.get('/listUsers', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
@@ -26,6 +28,25 @@ app.get('/addUser', function (req, res) {
        res.end( JSON.stringify(data));
    });
 })
+ 
+// weichart_ssl
+var login = require('./login');
+var onlogin = app.get('/weichart/onlongin',function(req,res){
+	
+//	var path = 'https://api.weixin.qq.com/sns/jscode2session?'+content;
+	login.login(req,function(res,data){
+		console.log('res is :'+res.openid);
+		console.log('data is :'+data);
+//		res.render(res);
+//		res.write(res);
+//  		res.end();
+	});
+	res.end();
+})
+
+
+
+
 var server = app.listen(8081, function () {
 
   var host = server.address().address
