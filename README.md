@@ -1,16 +1,20 @@
 # node
 
 ## 项目简介
-一个静态网页示例，入口文件为 index.html。
+node
 
 ## 目录
 - `index.html`
 - `login.js`
 - `main.js`
+- `README.md`
 - `users.json`
 
 ## 快速开始
-直接在浏览器中打开 `index.html`。
+```bash
+npm install
+node main.js
+```
 
 ## 说明
-- 这是一个静态前端示例，通常不需要额外构建步骤。
+- 这是一个 Node.js 示例或服务端小项目，通常可以直接用 `node` 或 `npm start` 启动。
